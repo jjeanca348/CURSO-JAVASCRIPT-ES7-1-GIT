@@ -218,3 +218,34 @@ function calcularTotalIva(precio, cantidad) {
 console.log(`El total con iva es: $${calcularTotalConIva(100000)}`);
 console.log(`El total de la compra es: $${calcularTotal(100000, 3)}`);
 console.log(`El total de la compra con iva es: $${calcularTotalIva(100000, 3)}`);
+
+//arrow functions
+const calcularIva =(precio) => precio * 0.19; //calcula el iva (19%) del valor total
+console.log(`El iva de $100000 es: $${calcularIva(100000)}`); //llamada a la funcion con el precio 100000
+
+//alcance de variables
+let variableGlobal = "Soy una variable global";
+
+function mostrarVariableGlobal() {
+    let variableLocal = "Soy una variable local dentro de la funcion";
+    console.log(variableGlobal); //accede a la variable global dentro de la funcion
+}
+
+mostrarVariableGlobal();
+
+function mostrarVaribleBloque() {
+    if (true) {
+        let variableBloque = "Soy una variable de bloque dentro del if";
+        console.log(variableBloque) //accede a la variable de bloque dentro del if
+    }
+    //console.log(variableBloque); //Esto genera un error pq variableBloque no es accesible fuera del bloque if
+}
+
+mostrarVVariableBloque();
+
+function validarMonto(monto) {
+    
+    return typeof monto === "number" && monto > 0; //retorna true si el monto es un numero y mayor a 0
+}
+console.log(validarMonto(100)); //true
+console.log(validarMonto(-50)); //false
